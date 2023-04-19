@@ -12,7 +12,10 @@ import java.util.ArrayList
  * Created by seokwon.jeong on 04/01/2018.
  */
 object Fishton {
-    lateinit var imageAdapter: ImageAdapter
+    // System may destroy Activity due to system constraints
+    // such as configuration change or memory pressure.
+    // That's why this should be belonged to callsite's lifecycle.
+    var imageAdapter: ImageAdapter? = null
     var currentPickerImageList: List<Uri> = emptyList()
 
     //BaseParams
